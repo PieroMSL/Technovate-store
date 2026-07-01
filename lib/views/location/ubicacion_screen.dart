@@ -288,6 +288,62 @@ class _UbicacionScreenState extends State<UbicacionScreen> {
                   ),
                 ],
               ),
+<<<<<<< HEAD
+=======
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            border: Border(top: BorderSide(color: Colors.grey.shade300)),
+          ),
+          constraints: const BoxConstraints(maxHeight: 280),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.store, size: 20),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        _viewModel.nombreTienda,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                    if (_viewModel.distancia.isNotEmpty)
+                      Chip(
+                        label: Text('${_viewModel.distancia} · ${_viewModel.duracion}',
+                            style: const TextStyle(fontSize: 12)),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                ElevatedButton.icon(
+                  onPressed: _abrirGoogleMaps,
+                  icon: const Icon(Icons.map, size: 18),
+                  label: const Text('Abrir en Google Maps'),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                  ),
+                ),
+                if (_sucursales.isNotEmpty) ...[
+                  const Divider(height: 20),
+                  Text('Otras sucursales cercanas',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey.shade700)),
+                  const SizedBox(height: 8),
+                  ...sucursalesConDistancia.map((s) => _buildSucursalRow(sucursal: s.sucursal, distanciaKm: s.distanciaKm)),
+                ],
+              ],
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
             ),
           ),
         ),

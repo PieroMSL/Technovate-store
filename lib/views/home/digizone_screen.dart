@@ -27,6 +27,25 @@ class _DigizoneScreenState extends State<DigizoneScreen>
 
 
   List<Widget> get _screens {
+<<<<<<< HEAD
+=======
+    if (_esAdmin) {
+      return [
+        const DigizoneAdminScreen(),
+        DigizoneTiendaScreen(
+          cartViewModel: cartViewModel,
+          onProductAdded: _onProductAdded,
+          onViewCart: () => setState(() => _selectedIndex = _indiceCarrito),
+        ),
+        CartScreen(cartViewModel: cartViewModel),
+        AiAssistantScreen(
+          cartViewModel: cartViewModel,
+          onProductAdded: _onProductAdded,
+        ),
+        const UbicacionScreen(),
+      ];
+    }
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
         // Admin UI block removed; admin now has separate login and guard.
 
     return [
@@ -60,6 +79,30 @@ class _DigizoneScreenState extends State<DigizoneScreen>
   }
 
   List<BottomNavigationBarItem> get _navItems {
+<<<<<<< HEAD
+=======
+    if (_esAdmin) {
+      return [
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.admin_panel_settings),
+          label: 'Admin',
+        ),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.store),
+          label: 'Tienda',
+        ),
+        BottomNavigationBarItem(icon: _cartIcon(), label: 'Carrito'),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.auto_awesome),
+          label: 'Asistente',
+        ),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.location_on),
+          label: 'Ubicación',
+        ),
+      ];
+    }
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
     // Admin navigation items removed; admin uses separate routes.
 
     return [

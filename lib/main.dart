@@ -22,6 +22,10 @@ void main() async {
     providerWeb: ReCaptchaV3Provider('YOUR_RECAPTCHA_V3_SITE_KEY_PLACEHOLDER'),
   );
   await AnalyticsService().initialize();
+<<<<<<< HEAD
+=======
+  debugPrint('DEBUG BOOT: main init start');
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
 
   try {
     await NotificationService().initialize();

@@ -23,6 +23,54 @@ class AnalyticsService {
         return true;
       };
       await _crashlytics.setCrashlyticsCollectionEnabled(!kDebugMode);
+<<<<<<< HEAD
+=======
+    if (kIsWeb) return;
+
+    FlutterError.onError = (details) {
+      debugPrint('DEBUG GLOBAL ERROR: flutter ${details.exception}');
+      _safeCrashlytics(
+        'flutter_fatal',
+        () => _crashlytics.recordFlutterFatalError(details),
+      );
+    };
+    PlatformDispatcher.instance.onError = (error, stack) {
+      debugPrint('DEBUG GLOBAL ERROR: platform $error');
+      _safeCrashlytics(
+        'platform_fatal',
+        () => _crashlytics.recordError(error, stack, fatal: true),
+      );
+      return true;
+    };
+    await _safeCrashlytics(
+      'initialize',
+      () => _crashlytics.setCrashlyticsCollectionEnabled(!kDebugMode),
+    );
+  }
+
+  Future<void> _safeAnalytics(
+    String event,
+    Future<void> Function() operation,
+  ) async {
+    try {
+      await operation().timeout(_timeout);
+      debugPrint('DEBUG ANALYTICS: event=$event ok');
+    } catch (e) {
+      debugPrint('DEBUG ANALYTICS: event=$event error=$e');
+    }
+  }
+
+  Future<void> _safeCrashlytics(
+    String event,
+    Future<void> Function() operation,
+  ) async {
+    if (kIsWeb) return;
+    try {
+      await operation().timeout(_timeout);
+      debugPrint('DEBUG ANALYTICS: event=crashlytics_$event ok');
+    } catch (e) {
+      debugPrint('DEBUG ANALYTICS: event=crashlytics_$event error=$e');
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
     }
   }
 
@@ -97,6 +145,15 @@ class AnalyticsService {
     await _analytics.setUserId(id: uid);
     if (uid != null && !kIsWeb) {
       await _crashlytics.setUserIdentifier(uid);
+<<<<<<< HEAD
+=======
+    await _safeAnalytics('set_user_id', () => _analytics.setUserId(id: uid));
+    if (uid != null && !kIsWeb) {
+      await _safeCrashlytics(
+        'set_user_identifier',
+        () => _crashlytics.setUserIdentifier(uid),
+      );
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
     }
   }
 }

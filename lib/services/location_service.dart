@@ -79,6 +79,12 @@ class LocationService {
     final response = await _client.get(url);
     if (response.statusCode != 200) {
       throw Exception('Error al conectar con el servidor de mapas (${response.statusCode})');
+<<<<<<< HEAD
+=======
+      throw Exception(
+        'Error al consultar Directions API (${response.statusCode})',
+      );
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
     }
 
     final data = jsonDecode(response.body) as Map<String, dynamic>;

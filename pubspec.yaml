@@ -26,8 +26,11 @@ dependencies:
   firebase_analytics: ^12.4.2
   firebase_crashlytics: ^5.2.3
   intl: ^0.20.2
+<<<<<<< HEAD
   image_picker: ^1.2.3
   permission_handler: ^12.0.3
+=======
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
   sensors_plus: ^7.0.0
 
 dev_dependencies:
