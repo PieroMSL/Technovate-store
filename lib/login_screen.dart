@@ -84,6 +84,22 @@ class _LoginScreenState extends State<LoginScreen> {
         userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
       }
 
+<<<<<<< HEAD
+=======
+      final googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        if (mounted) setState(() => _cargandoGoogle = false);
+        return;
+      }
+      final googleAuth = await googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      final userCredential = await FirebaseAuth.instance.signInWithCredential(
+        credential,
+      );
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
       final user = userCredential.user;
       if (user != null && userCredential.additionalUserInfo?.isNewUser == true) {
         final nombreCompleto = user.displayName ?? '';

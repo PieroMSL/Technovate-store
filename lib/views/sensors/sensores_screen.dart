@@ -26,11 +26,14 @@ class _SensoresScreenState extends State<SensoresScreen> {
   double? _anguloBrujula;
   StreamSubscription<Position>? _gpsSubscription;
 
+<<<<<<< HEAD
   bool _accelerometerTimeout = false;
   bool _gyroscopeTimeout = false;
   bool _magnetometerTimeout = false;
   Timer? _timeoutTimer;
 
+=======
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
   @override
   void initState() {
     super.initState();
@@ -199,7 +202,10 @@ class _SensoresScreenState extends State<SensoresScreen> {
               values: accelerometer,
               labels: const ['X', 'Y', 'Z'],
               color: Colors.blue,
+<<<<<<< HEAD
               timeout: _accelerometerTimeout,
+=======
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
             ),
             const SizedBox(height: 16),
             _SensorCard(
@@ -208,7 +214,10 @@ class _SensoresScreenState extends State<SensoresScreen> {
               values: gyroscope,
               labels: const ['X', 'Y', 'Z'],
               color: Colors.green,
+<<<<<<< HEAD
               timeout: _gyroscopeTimeout,
+=======
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
             ),
             const SizedBox(height: 16),
             _SensorCard(
@@ -219,7 +228,10 @@ class _SensoresScreenState extends State<SensoresScreen> {
                   .toList(),
               labels: const ['X', 'Y', 'Z'],
               color: Colors.red,
+<<<<<<< HEAD
               timeout: _magnetometerTimeout,
+=======
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
             ),
           ],
         ),
@@ -259,11 +271,23 @@ class _SensoresScreenState extends State<SensoresScreen> {
               ),
             const SizedBox(height: 16),
             SizedBox(
+<<<<<<< HEAD
               width: 80,
               height: 80,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
+=======
+              width: 180,
+              height: 180,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Transform.rotate(
+                    angle: -(brujula * math.pi / 180),
+                    child: Icon(Icons.navigation, size: 160, color: Colors.orange.shade200),
+                  ),
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
                   if (rumbo != null)
                     Transform.rotate(
                       angle: ((rumbo - brujula) * math.pi / 180),
@@ -384,7 +408,10 @@ class _SensorCard extends StatelessWidget {
   final List<String>? values;
   final List<String> labels;
   final Color color;
+<<<<<<< HEAD
   final bool timeout;
+=======
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
 
   const _SensorCard({
     required this.title,
@@ -392,7 +419,10 @@ class _SensorCard extends StatelessWidget {
     required this.values,
     required this.labels,
     required this.color,
+<<<<<<< HEAD
     required this.timeout,
+=======
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
   });
 
   @override
@@ -417,6 +447,7 @@ class _SensorCard extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             if (values == null)
+<<<<<<< HEAD
               Center(
                 child: timeout
                     ? const Padding(
@@ -428,6 +459,9 @@ class _SensorCard extends StatelessWidget {
                       )
                     : const CircularProgressIndicator(),
               )
+=======
+              const Center(child: CircularProgressIndicator())
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
             else
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

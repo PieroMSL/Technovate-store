@@ -206,6 +206,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: const Icon(Icons.camera_alt, size: 14, color: Colors.white),
                         ),
                       ],
+<<<<<<< HEAD
+=======
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Theme.of(
+                      context,
+                    ).colorScheme.primaryContainer,
+                    child: Icon(
+                      Icons.person,
+                      size: 40,
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -265,6 +277,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (_) => const SensoresScreen()),
+<<<<<<< HEAD
+=======
+                          MaterialPageRoute(
+                            builder: (_) => const SensoresScreen(),
+                          ),
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
                         );
                       },
                       icon: const Icon(Icons.sensors, size: 20),
@@ -293,6 +311,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   if (context.mounted) {
                                     Navigator.pop(context);
                                   }
+<<<<<<< HEAD
+=======
+                                  await SessionManager.logoutAndResetNavigation(
+                                    reason: 'manual',
+                                  );
+>>>>>>> 838f0720aa1256cbb3cd4cd746a98400885184e2
                                 },
                                 child: const Text('Cerrar sesión'),
                               ),
